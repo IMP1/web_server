@@ -1,0 +1,28 @@
+<ruby include="bfj_layout.rml">
+<ruby block-begin="main">
+    <section class="centred central">
+        <div class="huge">4<span class="stylised-o">0</span>4</div>
+        <p class="big">
+            Page not found.
+        </p>
+    </section>
+    <section class="centred central">
+        <section>
+            I'm afraid the link you or your browser gave doesn't refer to anything.
+        </section>
+        <section>
+            <p>
+                For a more detailed explanation of what a 404 error page is, check out the <a class="external" href="https://en.wikipedia.org/wiki/HTTP_404">wikipedia article</a>.
+            </p>
+        </section>
+        <section class="spaced-out">
+            <p>
+                You can get back to the Born for Joy homepage by clicking <a href="/">here</a>. Or you can use the navigation bar at the top of the page to get to key parts of the website.
+            </p>
+            <p class="spaced-out">
+                If you came here from another website, it might have a <abbr title="A link that no longer points (or never pointed) to a valid webpage.">dead link</abbr>, in which case you can let them know and they might be able to fix it. Or, if something has been removed from this website that previously existed, then you can send me an email using the <a href="/contact">contact page</a> and I will see what I can do.
+            </p>
+        </section>
+    </section>
+<ruby block-end="main">
+<ruby block-begin="footer"><ruby block-end="footer">

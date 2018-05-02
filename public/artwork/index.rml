@@ -1,0 +1,6 @@
+<ruby include="artwork/bfj_art_layout.rml">
+<ruby block-begin="main">
+    <ruby block-super>
+    <section>
+    </section>
+<ruby block-end="main">

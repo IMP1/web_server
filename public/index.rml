@@ -1,0 +1,42 @@
+<ruby include="bfj_layout.rml">
+<ruby block-begin="main">
+    <section id="motivations"
+             class="bubble">
+        <p>
+            I do various stuff. Stuff that I think brings me joy.
+            I do music: I sing and play guitar. Not profesionally or even particularly well, but I enjoy it and would like to show that you don't have to be great to do it. 
+            I code and do web developmenty stuff.
+            I'd like to draw, but I don't practice enough at the moment to be getting any better.
+            I write things: songs, poetry, prose.
+        </p>
+        <p>
+            The name of this website is based off two lines from a poem by William Blake.
+        </p>
+        <blockquote class="poetry">
+            <p>
+                How can the bird that is born for joy
+                <br>
+                Sit in a cage and sing?
+            </p>
+            <small class="author">William Blake, The Schoolboy, from Songs of Innocence and of Experience</small>
+        </blockquote>
+        <p>
+            This has always really resonated with me. 
+            It's about the idea of a schoolboy wasting away the summer days of his youth, but I like more generally the reminder that we can be born for joy. There are things that will bring us joy, and if we seek them then that is a worthwhile pursuit. And that we cannot achieve that joy if we are in situations that are counter to that goal. So we must remove ourselves from those cages where we can, and help others from their cages where they want.
+        </p>
+        <p>
+            A friend of mine said once that while he didn't like poetry, he liked poems. I really enjoyed the sentiment behind this, and I completely agree. I've not been exposed to many poems in my life, but I definitely have found poems I really like.
+        </p>
+        <blockquote class="poetry">
+            <p>
+                At the age-old pond,
+                <br>
+                A frog leaps into water.
+                <br>
+                A deep resonance.
+            </p>
+            <small class="author">Matsuo Bashô, Frog Haiku (translation unknown)</small>
+        </blockquote>
+
+    </section>
+<ruby block-end="main">

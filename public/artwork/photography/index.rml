@@ -1,0 +1,14 @@
+<ruby>
+    @view_bag['nav'][1] = "photography"
+</ruby>
+<ruby include="artwork/bfj_art_layout.rml">
+<ruby block-begin="main">
+    <h1 class="page-title">Photography</h1>
+    <section id="showcase" class="centred">
+        <ruby include="snippets/image.rml" args="size=30%&img=nasturtium">
+        <ruby include="snippets/image.rml" args="size=30%&img=heather">
+        <ruby include="snippets/image.rml" args="size=30%&img=lilies">
+        <ruby include="snippets/image.rml" args="size=30%&img=weir">
+        <ruby include="snippets/image.rml" args="size=30%&img=sycamore">
+    </section>
+<ruby block-end="main">

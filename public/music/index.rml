@@ -1,0 +1,10 @@
+<ruby>
+    @view_bag['nav'][0] = "music"
+</ruby>
+<ruby include="bfj_layout.rml">
+<ruby block-begin="main">
+    <h1 class="page-title">Music</h1>
+    <section>
+        
+    </section>
+<ruby block-end="main">

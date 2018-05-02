@@ -1,0 +1,24 @@
+<ruby>
+    @view_bag['nav'][0] = "artwork"
+    print @view_bag.inspect
+</ruby>
+<ruby include="bfj_layout.rml">
+<ruby block-begin="header">
+    <ruby block-super>
+    <nav>
+        <ul>
+            <li<ruby>p " class='selected'" if @view_bag['nav'][1] == "photography"</ruby>>
+                <a href="/artwork/photography" class="hover-purple">Photography</a>
+            </li>
+            <li>
+                <a href="/artwork/drawings" class="hover-orange">Drawings</a>
+            </li>
+            <li>
+                <a href="/artwork/paintings" class="hover-green">Paintings</a>
+            </li>
+        </ul>
+    </nav>
+<ruby block-end="header">
+<ruby block-begin="main">
+    <h1 class="page-title">Artwork</h1>
+<ruby block-end="main">

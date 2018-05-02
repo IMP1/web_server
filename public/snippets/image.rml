@@ -1,0 +1,3 @@
+<a href="/images/#{img}.jpg">
+    <img width="#{size}" src="/images/#{img}.jpg">
+</a>

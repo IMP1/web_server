@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #222;
+    color: #ccc;
+}
+
+.bfj-logo {
+    font-family: 'Josefin Sans', sans-serif;
+    display: inline-block;
+    width: 7.2em;
+    position: relative;
+    margin: 0;
+    text-align: left;
+}
+
+.stylised-o {
+    display: inline-block;
+    width: 0.8em;
+    position: relative;
+    visibility: hidden;
+}
+
+.stylised-o::before {
+    content: '∅';
+    visibility: visible;
+    position: absolute;
+    left: 0em;
+}
+
+.logo-first-letter {
+    display: inline-block;
+    width: 1em;
+    text-align: center;
+}
+
+.logo-o {
+    /*vertical-align: top;*/
+    display: inline-block;
+    position: absolute;
+    top: 0em;
+    left: 0.13em;
+    font-size: 5em;
+    line-height: 0.9em;
+    /*color: transparent;*/
+}
+
+.logo-r {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 1.65em;
+    font-size: 2.8em;
+    line-height: 1em;
+}
+
+.logo-n {
+    display: inline-block;
+    position: absolute;
+    font-size: 1em;
+    left: 6.5em;
+}
+
+.logo-y {
+    display: inline-block;
+    position: absolute;
+    font-size: 1em;
+    left: 4.8em;
+}
+
+a { 
+    color: #88f;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+    /*color: #ff8;*/
+}
+
+.hover-yellow:hover,
+.hover-yellow:focus {
+    color: #ff8;
+}
+.hover-red:hover,
+.hover-red:focus {
+    color: #f88;
+}
+.hover-green:hover,
+.hover-green:focus {
+    color: #8f8;
+}
+.hover-blue:hover,
+.hover-blue:focus {
+    color: #88f;
+}
+.hover-purple:hover,
+.hover-purple:focus {
+    color: #c8f;
+}
+.hover-orange:hover,
+.hover-orange:focus {
+    color: #fa4;
+}
+
+header {
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #eee;
+    color: #222;
+    margin-bottom: 3rem;
+}
+
+header a,
+header a:focus,
+header a:hover {
+    color: #222;
+    text-decoration: none;
+}
+
+header #header {
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-bottom: 0.5rem;
+}
+
+header h1 {
+    display: inline-block;
+    font-size: 2.5rem;
+    margin-bottom: 0;
+    margin-left: 1rem;
+    font-variant: small-caps;
+}
+
+header nav {
+    /*font-family: 'Nunito', sans-serif;*/
+    padding: 0;
+    /*padding-top: 0.5rem;*/
+    /*padding-bottom: 0.2rem;*/
+    background-color: #222;
+    border-bottom: 1px solid #eee;
+}
+
+header nav > ul {
+    padding-left: 3rem;
+    margin: 0;
+}
+
+header nav > ul > li {
+    display: inline-block;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+header nav > ul > li.selected > a {
+    color: #888;
+}
+
+header nav > ul > li.selected::before {
+    content: ">";
+    color: #888;
+}
+
+header nav > ul > li.selected::after {
+    content: "<";
+    color: #888;
+}
+
+header nav > ul > li > a {
+    font-weight: bold;
+    font-variant: small-caps;
+    font-size: 0.9rem;
+    color: #eee;
+}
+
+header nav > ul > li > a:hover,
+header nav > ul > li > a:focus {
+    text-decoration: underline;
+    color: #eee;
+}
+
+main, footer {
+    background-color: #222;
+    font-family: 'Nunito', sans-serif;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+footer {
+    width: 50%;
+    margin: auto;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    color: #666;
+    text-align: center;
+}
+
+.spaced-out {
+    margin-top: 4em;
+}
+
+.indented {
+    margin-left: 4em;
+    margin-right: 4em;
+}
+
+.central {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.centred {
+    text-align: center;
+}
+
+.big {
+    font-size: 2rem;
+}
+
+.huge {
+    font-size: 6rem;
+}
+
+.copyleft {
+  display:inline-block;
+  transform: rotate(180deg);
+}
+
+.poetry {
+    font-style: italic;
+}
+
+h1.page-title {
+    text-align: center;
+}
+
+header .bfj-logo {
+    font-size: 1rem;
+}
+
+footer .bfj-logo {
+    font-size: 0.8rem;
+}
+
+blockquote p {
+    margin-bottom: 0;
+}
+
+blockquote .author {
+    margin-top: 0.5rem;
+    display: block;
+    text-indent: 1rem;
+}
+
+blockquote .author::before {
+    content: '―';
+}
+
+
+/*∅*/

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Born for Joy</title>
+    <link rel="shortcut icon" href="https://cdn2.iconfinder.com/data/icons/mathematics-geometry/154/math-mathematical-expression-empty-set-512.png" type="image/png">
+    <link rel="stylesheet" type="text/css" href="/bfj_theme.css">
+</head>
+<body>
+    <header>
+        <ruby block-begin="header">
+            <section id="header">
+                <ruby block-begin="logo">
+                    <a href="/">
+                        <span class="bfj-logo">
+                            <div>
+                                <span class="logo-first-letter">B</span><span class="logo-o stylised-o">O</span><span class="logo-r">R</span><span class="logo-n">N</span>
+                            </div>
+                            <div>
+                                <span class="logo-first-letter">F</span><span class="logo-o stylised-o">O</span><span class="logo-r">R</span>
+                            </div>
+                            <div>
+                                <span class="logo-first-letter">J</span><span class="logo-o stylised-o">O</span><span class="logo-y">Y</span>
+                            </div>
+                        </span>
+                    </a>
+                    <h1>born for joy</h1>
+                <ruby block-end="logo">
+            </section>
+            <nav>
+                <ul>
+                    <li<ruby>p " class='selected'" if @view_bag['nav'][0] == "music"</ruby>>
+                        <a href="/music" class="hover-green">Music</a>
+                    </li>
+                    <li<ruby>p " class='selected'" if @view_bag['nav'][0] == "games"</ruby>>
+                        <a href="/games" class="hover-red">Games</a>
+                    </li>
+                    <li<ruby>p " class='selected'" if @view_bag['nav'][0] == "coding"</ruby>>
+                        <a href="/coding" class="hover-yellow">Coding</a>
+                    </li>
+                    <li<ruby>p " class='selected'" if @view_bag['nav'][0] == "writings"</ruby>>
+                        <a href="/writings" class="hover-blue">Writings</a>
+                    </li>
+                    <li<ruby>p " class='selected'" if @view_bag['nav'][0] == "artwork"</ruby>>
+                        <a href="/artwork" class="hover-purple">Artwork</a>
+                    </li>
+                    <!-- <li>
+                        <a href="/" class="hover-orange">???</a>
+                    </li> -->
+                </ul>
+            </nav>
+        <ruby block-end="header">
+    </header>
+    <main>
+        <ruby block-begin="main">
+            <span>this should be overridden by files :)</span>
+        <ruby block-end="main">
+    </main>
+    <footer>
+        <ruby block-begin="footer">
+            <div>
+                <span class="copyleft">&copy;</span>
+                Copyright schmopyright, amiright?
+            </div>
+            <span class="bfj-logo">
+                <div>
+                    <span class="logo-first-letter">B</span><span class="logo-o">∅</span><span class="logo-r">R</span><span class="logo-n">N</span>
+                </div>
+                <div>
+                    <span class="logo-first-letter">F</span><span class="logo-o">∅</span><span class="logo-r">R</span>
+                </div>
+                <div>
+                    <span class="logo-first-letter">J</span><span class="logo-o">∅</span><span class="logo-y">Y</span>
+                </div>
+            </span>
+        <ruby block-end="footer">
+    </footer>
+    <section id="debug" class="central">
+        <h1>Debugging</h1>
+        <ruby>
+            p @view_bag.inspect
+        </ruby>
+    </section>
+</body>
+</html>
