@@ -1,0 +1,5 @@
+# Spider
+
+# Authentication
+Look at authentication. Seems like a tricky problem to solve, but maybe can just
+make some interfaces that call out to existing libraries (eg. OAuth)
