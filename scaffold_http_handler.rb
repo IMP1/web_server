@@ -1,9 +1,7 @@
 require_relative 'http_handler'
 require_relative 'scaffold'
 
-class DefaultHttpHandler < HttpHandler
-
-    EXTENSIONS.insert(0, '.rml')
+class ScaffoldingHttpHandler < HttpHandler
 
     def get_controller_type(route)
         return Controller.controllers.select { |c| c.match_path?(route) }.first
@@ -11,23 +9,25 @@ class DefaultHttpHandler < HttpHandler
 
     # Overwritten
     def handle_request(socket, request_type, request_args)
-        path = request_args[0].split('/')
-        case request_type
-        when :HEAD
-            handle_head(socket)
-        when :POST
-            handle_post(socket, path)
-        when :GET
-            handle_get(socket, path)
+        path = request_args[0][1..-1]
+        p path
+        args = [] # TODO: get args for controller actions somehow
+        model = [] # TODO: get model somehow
+        
+        controller_type = get_controller_type(path)
+
+        p controller_type
+
+        if controller_type.nil?
+            # TODO: error? 404, probably.
+            file_not_found(socket)
+        else
+            controller = controller_type.new(model)
+            controller.handle_request(request_type, path, args)
         end
     end
 
-    def handle_head(socket)
-        no_content(socket)
-    end
-
-    def handle_post(socket, path)
-        no_content(socket)
+    # def handle_post(socket, path)
         # post_headers = {}
         # loop do
         #     line = socket.gets.split(' ', 2)
@@ -40,18 +40,14 @@ class DefaultHttpHandler < HttpHandler
 
         # p data
 
-        # # handle data, do creation or whatever
-        # # return location to new data if relevant
+        # handle data, do creation or whatever
+        # return location to new data if relevant
 
         # location = 'foo/bar'
         # socket.print http_header(201, "Created", {"Location"=>"#{location}"})
         # socket.print EMPTY_LINE
 
         # or alternatively, give a no content response
-    end
-
-    def handle_get(socket, path)
-        serve_file(socket, path)
-    end
+    # end
 
 end
