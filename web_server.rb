@@ -75,6 +75,7 @@ class WebServer
             response_action = @handler.handle_request(socket, request_method.to_sym, request_parts)
         rescue Exception => e
             @logger.log(e.to_s, Logger::ERROR)
+            p e
             p e.backtrace
             @handler.server_error(socket, "An internal error occurred. You've done nothing wrong. Try again in a bit.")
         end
