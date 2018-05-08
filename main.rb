@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
 
 require_relative 'web_server'
-require_relative 'bfj_http_handler'
+require_relative 'scaffold_http_handler'
 
-http_handler = DefaultHttpHandler.new
+http_handler = ScaffoldingHttpHandler.new
 
 webserver = WebServer.new(2345, http_handler)
 webserver.begin
