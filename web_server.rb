@@ -36,7 +36,7 @@ class WebServer
     def stop
         @thread.kill
         @server.close
-        @logger.log("Stopped.")
+        @logger.log("Stopped.", Logger::INFO)
     end
 
     def begin(block=false)
@@ -46,7 +46,7 @@ class WebServer
         # sslContext.cert = OpenSSL::X509::Certificate.new(File.open("cert.pem"))
         # sslContext.key = OpenSSL::PKey::RSA.new(File.open("priv.pem"))
         # @sslServer = OpenSSL::SSL::SSLServer.new(server, sslContext)
-        @logger.log("Listening on localhost:#{@port}")
+        @logger.log("Listening on localhost:#{@port}", Logger::INFO)
         @thread = Thread.new { listen }
         @thread.join if block
     end
@@ -61,7 +61,7 @@ class WebServer
     end
 
     def handle_connection(socket)
-        @logger.log("Connected to socket: #{socket}")
+        @logger.log("Connected to socket: #{socket}", Logger::DEBUG)
         request = socket.gets
         handle_request(socket, request)
         socket.close
@@ -69,7 +69,7 @@ class WebServer
 
     def handle_request(socket, request)
         return if request.nil?
-        @logger.log("Received request: #{request}")
+        @logger.log("Received request: #{request}", Logger::DEBUG)
         request_method, *request_parts = request.split(" ")
         begin
             response_action = @handler.handle_request(socket, request_method.to_sym, request_parts)
