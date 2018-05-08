@@ -8,7 +8,7 @@ class Logger
     DEBUG       = 5
     TRACE       = 6
 
-    PRIORITY_STRINGS = %w(Trace Debug Info Warn Error Fatal None)
+    PRIORITY_STRINGS = %w(None Fatal Error Warning Info Debug Trace)
 
     attr_reader :last_message
     
@@ -44,7 +44,7 @@ class Logger
 
     def log_message(message, importance)
         return if importance > @importance_level
-        @out.puts "[#{@source}] #{PRIORITY_STRINGS[@importance_level]} " + (" " * @padding * @@depths[@out]) + message 
+        @out.puts "[#{@source}] (#{PRIORITY_STRINGS[@importance_level]}): " + (" " * @padding * @@depths[@out]) + message 
         @last_message = message
     end
 
