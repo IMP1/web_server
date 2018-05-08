@@ -22,8 +22,9 @@ class Action
 
     METHODS = [:GET, :POST, ] # @TODO: Add others
 
-    def initialize(http_method, path, arity, block_body)
+    def initialize(http_method, controller, path, arity, block_body)
         @http_method = http_method
+        @controller  = controller
         @path        = path
         @arity       = arity
         @handler     = block_body
@@ -31,6 +32,10 @@ class Action
 
     def call(*args)
         @handler.call(*args)
+    end
+
+    def match_method(http_method)
+        return @http_method == http_method
     end
 
     def match_path(path)
@@ -57,6 +62,16 @@ class Controller
     @actions      = []
     @route_prefix = ""
 
+    @@controllers = []
+
+    def self.controllers
+        return @@controllers
+    end
+
+    def self.match_path?(path)
+        return path.start_with?(self.route_prefix)
+    end
+
     MULTIPLE_ACTION_SOULTION = :LAST # Options are :FIRST, :LAST, :ERROR
 
     attr_reader :model
@@ -66,13 +81,16 @@ class Controller
         @model    = model
     end
 
-    def handle_request(location, *args)
+    def handle_request(request_type, location, *args)
         # @TODO: strip path of the controllers route prefix?
         path = self.class.route_prefix + "/" + location
-        possible_actions = self.class.actions.filter { |a| a.match_path(path) && a.match_args(args) }
-        if possible_actions.size == 0
+        possible_actions = self.class.actions.select { |a| a.match_method(request_type) && a.match_path(path) && a.match_args(args) }
+        if possible_actions.empty?
+            p request_type
+            p path
+            p args
             return http_status(404)
-        elsif possible_actions.size > 1
+        else
             case MULTIPLE_ACTION_SOULTION
             when :FIRST
                 warning_message = "There were multiple possible actions for #{location} with #{args.join(', ')}."\
@@ -91,7 +109,6 @@ class Controller
                 return http_status(500)
             end
         end
-        return possible_actions.first
     end
 
     def redirect(location, *args)
@@ -119,17 +136,20 @@ class Controller
     end
 
     def self.ROUTE(path)
+        @@controllers.push(self) if !@@controllers.include?(self)
         self.route_prefix = path
     end
 
     def self.GET(path, &block)
+        @@controllers.push(self) if !@@controllers.include?(self)
         self.actions ||= []
-        self.actions.push(Action.new(:GET, path, block.arity, block))
+        self.actions.push(Action.new(:GET, self, path, block.arity, block))
     end
 
     def self.POST(path, &block)
+        @@controllers.push(self) if !@@controllers.include?(self)
         self.actions ||= []
-        self.actions.push(Action.new(:POST, path, block.arity, block))
+        self.actions.push(Action.new(:POST, self, path, block.arity, block))
     end
 
 end
@@ -140,7 +160,7 @@ class UserController < Controller
     ROUTE 'user'
 
     GET 'profile/{id}' do |id|
-        user = model.read('user').filter { |f| f.id == id }
+        user = model.read('user').select { |f| f.id == id }
         return view("user/profile/", id)
     end
 
