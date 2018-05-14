@@ -73,7 +73,7 @@ class WebServer
         request_method, *request_parts = request.split(" ")
         begin
             response_action = @handler.handle_request(socket, request_method.to_sym, request_parts)
-        rescue Exception => e
+        rescue StandardError => e
             @logger.log(e.to_s, Logger::ERROR)
             p e
             p e.backtrace
