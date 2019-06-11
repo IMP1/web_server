@@ -10,6 +10,22 @@ class DefaultHttpHandler < HttpHandler
     end
 
     # Overwritten
+    def get_file_type(filename)
+        if filename.end_with? ".rml"
+            return "text/html"
+        end
+        return super
+    end
+
+    # Overwritten
+    def parse_file_contents(filename, file_contents, args)
+        if filename.end_with? ".rml"
+            return RMLParser.new(file_string, filename).parse(variables)
+        end
+        return super
+    end
+
+    # Overwritten
     def handle_request(socket, request_type, request_args)
         path = request_args[0].split('/')
         case request_type
