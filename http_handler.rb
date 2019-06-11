@@ -57,6 +57,30 @@ class HttpHandler
         raise 'not implemented'
     end
 
+    def get_file_type(filename)
+        # Text Filetypes
+        if filename.end_with? ".css"
+            return "text/css"
+        end
+
+        # Image Filetypes
+        if filename.end_with? ".jpg" or filename.end_with? ".jpeg"
+            return "image/jpeg"
+        end
+        if filename.end_with? ".png" 
+            return "image/png"
+        end
+        if filename.end_with? ".gif"
+            return "image/gif"
+        end
+        return "text/xml"
+    end
+
+    # To be overridden to handle preprocessing.
+    def parse_file_contents(filename, file_contents, args)
+        return file_contents
+    end
+
     def get_file_contents(socket, filepath, variables=nil)
         filename = HttpHandler.get_file_path(filepath)
         file_string = HttpHandler.file_contents(filepath)
@@ -65,27 +89,9 @@ class HttpHandler
             return
         end
 
-        content_type = 'text/xml'
+        content_type = get_file_type(filename)
 
-        if filename.end_with? ".rml"
-            file_string = RMLParser.new(file_string, filename).parse(variables)
-            content_type = 'text/html'
-        end
-
-        if filename.end_with? ".css"
-            content_type = 'text/css'
-        end
-
-        # Image Filetypes
-        if filename.end_with? ".jpg" or filename.end_with? ".jpeg"
-            content_type = "image/jpeg"
-        end
-        if filename.end_with? ".png" 
-            content_type = "image/png"
-        end
-        if filename.end_with? ".gif"
-            content_type = "image/gif"
-        end
+        file_string = parse_file_contents(filename, file_string, variables)
 
         file_string += EMPTY_LINE
         return file_string, content_type
